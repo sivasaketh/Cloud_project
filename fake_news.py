@@ -5,7 +5,7 @@ import itertools
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import PassiveAggressiveClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score
 
 # Converting the .csv file to pandas dataframe
 df=pd.read_csv('C:/Users/saket/Cloud_Project/news.csv')
@@ -35,6 +35,7 @@ y_pred=pac.predict(tfidf_test)
 score=accuracy_score(y_test,y_pred)
 print(y_pred)
 print("Accuracy:", round(score*100,2),"%")
+
 
 confusion_matrix = confusion_matrix(y_test,y_pred, labels=['FAKE','REAL'])
 print(confusion_matrix)
